@@ -71,7 +71,7 @@ class Enum (AEnum, tuple):
         return _Enum(self, arg)
 
 """
-    Этот экз-р не должен создаваться явно. Только через Enum
+Этот экз-р не должен создаваться явно. Только через Enum
 """
 class _Enum(AEnum, list):
     def __new__(cls, *_enum):
