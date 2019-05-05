@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 class AEnum (object):
 
     _values = {}
@@ -70,12 +71,23 @@ class Enum (AEnum, tuple):
         #return r
         return _Enum(self, arg)
 
+    def Optional(self, func):
+        # специальные требования, или условия для изменения значения
+        if callable(func):
+            self.optional = func
+
+        return self
+
 """
-Этот экз-р не должен создаваться явно. Только через Enum
+    Этот экз-р не должен создаваться явно. Только через Enum
 """
 class _Enum(AEnum, list):
     def __new__(cls, *_enum):
         enum, arg = _enum                                                           # итератор двойных итераторов
+
+        if hasattr(enum, 'optional'):
+            if enum.optional(arg) == False:
+                raise Exception('the condition specified in the "Optional" is not met')
 
         for i in range(len(enum)):
             b = (arg >> i) & 1
