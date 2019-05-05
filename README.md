@@ -1,5 +1,14 @@
 # Py2Enum
-Реализация Enum-а для python 2 с возможностью применения побитовых флагов.
+Реализация Enum-а для python 2 с возможностью применения побитовых флагов. 
+
+Example: 
+
+    myEnum = Enum('First','dfdf','rt')
+    val = myEnum( myEnum.First + myEnum.rt )
+    if val == 'First':
+        print val.__sum__()
+
+Добавлены условия сочетания флагов:
 
 In Optional you can specify thr condition for compatible flags of your enum. In example I have specified on incompatible flags for first and second bits if first bit is 0 and second if not 0. This feature is rarely needed, but can be very useful.
 
