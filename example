@@ -1,0 +1,29 @@
+def main():
+    e = Enum('first','dfdf','rt')
+    print e[1]
+    print e.first
+    print e
+    el = e(6)
+    print el
+    print el()
+    if el == 'rt':
+        print 'ok'
+
+    print ''
+
+    for i in e:
+        print i
+
+    print ''
+
+    Enum('second')[1]
+
+    print e['first']
+    print e.first
+
+
+
+
+
+if __name__ == '__main__':
+    main()
